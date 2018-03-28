@@ -1,8 +1,9 @@
 import React from 'react';
+import FoodCard from './components/js/FoodCard';
 
 function App() {
   return (
-    <div>Start</div>
+    <FoodCard />
   );
 }
 
