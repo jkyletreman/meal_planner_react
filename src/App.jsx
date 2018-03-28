@@ -1,9 +1,11 @@
 import React from 'react';
-import FoodCard from './components/js/FoodCard';
+import Feed from './components/js/Feed';
+
+
 
 function App() {
   return (
-    <FoodCard />
+    <Feed />
   );
 }
 

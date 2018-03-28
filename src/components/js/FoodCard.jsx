@@ -4,15 +4,16 @@ import 'antd/dist/antd.css';
 
 const { Meta } = Card;
 /* eslint arrow-body-style: [0] */
-const FoodCard = () => {
+const FoodCard = ({ info: { cardImg, description, avatar, title }}) => {
   return (
     <React.Fragment>
       <Card
+        hoverable
         style={{ width: 300 }}
         cover={
           <img
             alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            src={ cardImg }
           />}
         actions={[
           <Icon type="setting" />,
@@ -22,9 +23,10 @@ const FoodCard = () => {
       >
         <Meta
           avatar={
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title="Card title"
-          description="This is the description"
+            <Avatar src={ avatar }
+            />}
+          title={ title }
+          description={ description }
         />
       </Card>
     </React.Fragment>
