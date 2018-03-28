@@ -1,10 +1,15 @@
 import React from 'react';
 import { Card, Icon, Avatar } from 'antd';
+import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
 /* eslint arrow-body-style: [0] */
-const FoodCard = ({ info: { cardImg, description, avatar, title }}) => {
+const FoodCard = ({
+  info: {
+    cardImg, description, avatar, title,
+  },
+}) => {
   return (
     <React.Fragment>
       <Card
@@ -13,7 +18,7 @@ const FoodCard = ({ info: { cardImg, description, avatar, title }}) => {
         cover={
           <img
             alt="example"
-            src={ cardImg }
+            src={cardImg}
           />}
         actions={[
           <Icon type="setting" />,
@@ -23,13 +28,23 @@ const FoodCard = ({ info: { cardImg, description, avatar, title }}) => {
       >
         <Meta
           avatar={
-            <Avatar src={ avatar }
-            />}
-          title={ title }
-          description={ description }
+            <Avatar src={avatar} />}
+          title={title}
+          description={description}
         />
       </Card>
     </React.Fragment>
   );
+};
+FoodCard.defaultProps = {
+  info: true,
+};
+FoodCard.propTypes = {
+  info: PropTypes.shape({
+    cardImg: PropTypes.string,
+    avatar: PropTypes.string,
+    description: PropTypes.string,
+    title: PropTypes.string,
+  }),
 };
 export default FoodCard;
