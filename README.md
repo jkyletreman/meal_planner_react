@@ -1,6 +1,6 @@
-##Meal Planner in React
+## Meal Planner in React
 
-####Pre-build steps
+#### Pre-build steps
 - Created w create-react-app
 - Added ESLint, airbnb style guide
 - Added CircleCI
