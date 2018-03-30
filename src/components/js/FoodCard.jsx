@@ -10,7 +10,7 @@ const grid = {
   gridColumn: 'span 3',
   backgroundColor: 'white',
   width: '300px',
-}
+};
 /* eslint arrow-body-style: [0] */
 const FoodCard = (props) => {
   const {
@@ -28,7 +28,7 @@ const FoodCard = (props) => {
         style={grid}
         cover={
           <img
-            style={{height: 250}}
+            style={{ height: 250 }}
             alt="example"
             src={img}
           />}
