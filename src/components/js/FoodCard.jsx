@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
+
+const grid = {
+  border: 'solid 1px black',
+  gridColumn: 'span 3',
+  backgroundColor: 'white',
+  width: '300px',
+}
 /* eslint arrow-body-style: [0] */
 const FoodCard = (props) => {
   const {
@@ -18,9 +25,10 @@ const FoodCard = (props) => {
     <React.Fragment>
       <Card
         hoverable
-        style={{ width: 300 }}
+        style={grid}
         cover={
           <img
+            style={{height: 250}}
             alt="example"
             src={img}
           />}

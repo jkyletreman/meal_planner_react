@@ -5,6 +5,12 @@ import FoodCard from './FoodCard';
       - title
       - description (short)
       - avatar img (user) // this is not coming from the database currently */
+const grid = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(12, 1fr)',
+  gridGap: '20px',
+}
+
 export default class Feed extends Component {
   constructor() {
     super();
@@ -22,7 +28,7 @@ export default class Feed extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={grid}>
         {this.state.info.map(card =>
           <FoodCard key={card.id} info={card} />)}
       </div>
