@@ -4,31 +4,28 @@ import FoodCard from './FoodCard';
       - img url
       - title
       - description (short)
-      - avatar img (user)
-*/
+      - avatar img (user) // this is not coming from the database currently */
 export default class Feed extends Component {
   constructor() {
     super();
     this.state = {
-      info: []
-    }
+      info: [],
+    };
   }
   componentDidMount() {
-    this.getCards()
+    this.getCards();
   }
   async getCards() {
     const res = await fetch('/api/smallCards');
     const cards = await res.json();
-    this.setState({ info: cards })
+    this.setState({ info: cards });
   }
   render() {
     return (
       <div>
-        {this.state.info.map(card => {
-          return <FoodCard key={card.id} info={ card } /> // TODO: pass avatar
-          }
-        )}
-     </div>
-    )
+        {this.state.info.map(card =>
+          <FoodCard key={card.id} info={card} />)}
+      </div>
+    );
   }
 }

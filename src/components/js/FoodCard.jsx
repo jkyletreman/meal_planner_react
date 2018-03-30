@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Icon, Avatar } from 'antd';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
@@ -10,9 +10,10 @@ const FoodCard = (props) => {
     info: {
       img,
       name,
-      summary
-    }
-  } = props
+      summary,
+    } = {},
+  } = props;
+
   return (
     <React.Fragment>
       <Card
@@ -31,22 +32,22 @@ const FoodCard = (props) => {
       >
         <Meta
           avatar={
-            <Avatar src={"https://image.ibb.co/eML677/Profile.jpg"} />}
+            <Avatar src="https://image.ibb.co/eML677/Profile.jpg" />}
           title={name}
           description={summary}
         />
       </Card>
     </React.Fragment>
   );
-}
-// FoodCard.defaultProps = {
-//   info: true,
-// };
-// FoodCard.propTypes = {
-//   info: PropTypes.shape({
-//     cardImg: PropTypes.string,
-//     description: PropTypes.string,
-//     title: PropTypes.string,
-//   }),
-// };
-export default FoodCard
+};
+FoodCard.defaultProps = {
+  info: true,
+};
+FoodCard.propTypes = {
+  info: PropTypes.shape({
+    cardImg: PropTypes.string,
+    description: PropTypes.string,
+    title: PropTypes.string,
+  }),
+};
+export default FoodCard;
