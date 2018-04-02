@@ -9,10 +9,10 @@ class Header extends React.Component {
   state = {
     current: 'bank'
   }
-  // handleClick = (e) => {
-  //   console.log('click ', e);
-  //   this.setState({current: e.key});
-  // }
+  handleClick = (e) => {
+    console.log('click ', e);
+    this.setState({current: e.key});
+  }
   render() {
     return (
       <Router>
@@ -40,7 +40,7 @@ class Header extends React.Component {
           <Route exact path="/" render={() => <Feed />} />
           <Route exact path="/week" render={() => <WeekView />} />
         </Switch>
-        
+
       </React.Fragment>
     </Router>
     );
