@@ -12,38 +12,15 @@ const grid = {
 };
 
 export default class Feed extends Component {
-  constructor() {
-    super();
-    this.state = {
-      info: [],
-      week: {
-        Monday: [],
-        Tuesday: [],
-        Wednesday: [],
-        Thursday: [],
-        Friday: []
-      }
-    };
-    this.updateDay = this.updateDay.bind(this)
-  }
-  componentWillMount() {
-    this.getCards();
-  }
-  async getCards() {
-    const res = await fetch('/api/smallCards');
-    const cards = await res.json();
-    this.setState({ info: cards });
-  }
-
-  updateDay(info) {
-    console.log(info)
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return (
       <div style={grid}>
-        {this.state.info.map(card =>
-          <FoodCard key={card.id} info={card} updateDay={this.updateDay}/>)}
+        {this.props.info.map(card =>
+          <FoodCard key={card.id} info={card} updateDay={this.props.updateDay}/>)}
       </div>
     );
   }
