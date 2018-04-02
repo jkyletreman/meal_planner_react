@@ -18,7 +18,7 @@ export default class Feed extends Component {
       info: [],
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     this.getCards();
   }
   async getCards() {
