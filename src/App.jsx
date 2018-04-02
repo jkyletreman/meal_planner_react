@@ -1,9 +1,13 @@
 import React from 'react';
 import Feed from './components/js/Feed';
+import Header from './components/js/Header';
 
 function App() {
   return (
-    <Feed />
+    <React.Fragment>
+      <Header/>
+      <Feed/>
+    </React.Fragment>
   );
 }
 
