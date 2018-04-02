@@ -24,6 +24,7 @@ export default class Feed extends Component {
         Friday: []
       }
     };
+    this.updateDay = this.updateDay.bind(this)
   }
   componentWillMount() {
     this.getCards();
@@ -34,11 +35,15 @@ export default class Feed extends Component {
     this.setState({ info: cards });
   }
 
+  updateDay(info) {
+    console.log(info)
+  }
+
   render() {
     return (
       <div style={grid}>
         {this.state.info.map(card =>
-          <FoodCard key={card.id} info={card} />)}
+          <FoodCard key={card.id} info={card} updateDay={this.updateDay}/>)}
       </div>
     );
   }

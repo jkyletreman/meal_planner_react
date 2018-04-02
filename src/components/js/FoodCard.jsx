@@ -15,14 +15,19 @@ const grid = {
 export default class FoodCard extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
-
+  handleClick() {
+    const info = this.props.info
+    this.props.updateDay(info)
+  }
   render() {
     return (
       <React.Fragment >
         <div style={grid} >
         <Card
           hoverable
+          onClick={this.handleClick}
           cover={
             <img
               style={{ height: 250 }}
