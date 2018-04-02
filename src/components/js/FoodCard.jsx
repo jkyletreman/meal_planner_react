@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Icon, Avatar } from 'antd';
-import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
@@ -21,6 +20,7 @@ export default class FoodCard extends React.Component {
     const info = this.props.info
     this.props.updateDay(info)
   }
+
   render() {
     return (
       <React.Fragment >
