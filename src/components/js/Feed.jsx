@@ -16,7 +16,15 @@ export default class Feed extends Component {
     super();
     this.state = {
       info: [],
+      week: {
+        Monday: [],
+        Tuesday: [],
+        Wednesday: [],
+        Thursday: [],
+        Friday: []
+      }
     };
+    this.handleClick = this.handleClick.bind(this)
   }
   componentWillMount() {
     this.getCards();
@@ -26,11 +34,14 @@ export default class Feed extends Component {
     const cards = await res.json();
     this.setState({ info: cards });
   }
+  handleClick() {
+    console.log('cool');
+  }
   render() {
     return (
       <div style={grid}>
         {this.state.info.map(card =>
-          <FoodCard key={card.id} info={card} />)}
+          <FoodCard key={card.id} info={card} onClick={this.handleClick}/>)}
       </div>
     );
   }
