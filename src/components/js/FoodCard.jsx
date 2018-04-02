@@ -11,51 +11,36 @@ const grid = {
   backgroundColor: 'white',
   width: '300px',
 };
-/* eslint arrow-body-style: [0] */
-const FoodCard = (props) => {
-  const {
-    info: {
-      img,
-      name,
-      summary,
-    } = {},
-  } = props;
 
-  return (
-    <React.Fragment>
-      <Card
-        hoverable
-        style={grid}
-        cover={
-          <img
-            style={{ height: 250 }}
-            alt="example"
-            src={img}
-          />}
-        actions={[
-          <Icon type="setting" />,
-          <Icon type="edit" />,
-          <Icon type="ellipsis" />,
-        ]}
-      >
-        <Meta
-          avatar={
-            <Avatar src="https://image.ibb.co/eML677/Profile.jpg" />}
-          title={name}
-          description={summary}
-        />
-      </Card>
-    </React.Fragment>
-  );
-};
-FoodCard.defaultProps = {
-  info: true,
-};
-FoodCard.propTypes = {
-  info: PropTypes.shape({
-    cardImg: PropTypes.string,
-    description: PropTypes.string,
-    title: PropTypes.string,
-  }),
-};
-export default FoodCard;
+export default class FoodCard extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Card
+          hoverable
+          style={grid}
+          cover={
+            <img
+              style={{ height: 250 }}
+              alt="example"
+              src={this.props.info.img}
+            />}
+          actions={[
+            <Icon type="plus-circle" onClick={this.props.onClick} />,
+          ]}
+        >
+          <Meta
+            avatar={
+              <Avatar src="https://image.ibb.co/eML677/Profile.jpg" />}
+            title={this.props.info.name}
+            description={this.props.info.summary}
+          />
+        </Card>
+      </React.Fragment>
+    );
+  };
+}
