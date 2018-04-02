@@ -20,7 +20,7 @@ export default class Feed extends Component {
     return (
       <div style={grid}>
         {this.props.info.map(card =>
-          <FoodCard key={card.id} info={card} updateDay={this.props.updateDay}/>)}
+          <FoodCard key={card.id} info={card} day={this.props.day} updateDay={this.props.updateDay}/>)}
       </div>
     );
   }

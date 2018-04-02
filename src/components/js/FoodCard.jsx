@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Avatar } from 'antd';
+import { Card, Icon, Avatar, message } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
@@ -19,6 +19,7 @@ export default class FoodCard extends React.Component {
   handleClick() {
     const info = this.props.info
     this.props.updateDay(info)
+    message.info(`Added to ${this.props.day}`)
   }
 
   render() {
