@@ -1,12 +1,14 @@
 import React from 'react';
 import Feed from './components/js/Feed';
 import Header from './components/js/Header';
+import WeekView from './components/js/WeekView';
 
 function App() {
   return (
     <React.Fragment>
       <Header/>
-      <Feed/>
+      <WeekView />
+      {/* <Feed/> */}
     </React.Fragment>
   );
 }

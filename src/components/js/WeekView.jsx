@@ -5,10 +5,18 @@ const WeekView = () => {
   return (
     <div>
       <Divider dashed />
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.</p>
-      <Divider orientation="left">With Text</Divider>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.</p>
-      <Divider orientation="right">With Text</Divider>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.</p>
+      <h2>Your Weekly Dashboard</h2>
+      <Divider orientation="left">Monday</Divider>
+      <p>Today is ...</p>
+      <Divider orientation="left">Tuesday</Divider>
+      <p>Today is ...</p>
+      <Divider orientation="left">Wednesday</Divider>
+      <p>Today is ...</p>
+      <Divider orientation="left">Thursday</Divider>
+      <p>Today is ...</p>
+      <Divider orientation="left">Friday</Divider>
+      <p>Today is ...</p>
+      <Divider dashed />
     </div>
-)}
+)};
+export default WeekView;
