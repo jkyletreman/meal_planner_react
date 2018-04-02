@@ -11,3 +11,4 @@
 - data to React via proxy
 - Added weekly view
 - Added Header
+- Add Router
