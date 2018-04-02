@@ -13,16 +13,16 @@ const grid = {
 };
 
 export default class FoodCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return (
-      <React.Fragment>
+      <React.Fragment >
+        <div style={grid} >
         <Card
           hoverable
-          style={grid}
           cover={
             <img
               style={{ height: 250 }}
@@ -30,7 +30,7 @@ export default class FoodCard extends React.Component {
               src={this.props.info.img}
             />}
           actions={[
-            <Icon type="plus-circle" onClick={this.props.onClick} />,
+            <Icon type="plus-circle" />,
           ]}
         >
           <Meta
@@ -40,6 +40,7 @@ export default class FoodCard extends React.Component {
             description={this.props.info.summary}
           />
         </Card>
+      </div>
       </React.Fragment>
     );
   };
