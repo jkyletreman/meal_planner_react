@@ -12,4 +12,9 @@
 - Added weekly view
 - Added Header
 - Add Router
-- Refractored Nav to be contained within the Header 
+- Refractored Nav to be contained within the Header
+- Writing functions that pass card info back up to parent
+- Setting the state with the selected cards
+- Passing the cards to the weekly view
+- Moved state up to Header
+- State now managing cards selected
