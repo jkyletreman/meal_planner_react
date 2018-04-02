@@ -12,3 +12,4 @@
 - Added weekly view
 - Added Header
 - Add Router
+- Refractored Nav to be contained within the Header 
