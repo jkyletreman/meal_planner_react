@@ -7,15 +7,15 @@ const WeekView = () => {
       <Divider dashed />
       <h2>Your Weekly Dashboard</h2>
       <Divider orientation="left">Monday</Divider>
-      <p>Today is ...</p>
+      <p>No Meals Selected...</p>
       <Divider orientation="left">Tuesday</Divider>
-      <p>Today is ...</p>
+      <p>No Meals Selected...</p>
       <Divider orientation="left">Wednesday</Divider>
-      <p>Today is ...</p>
+      <p>No Meals Selected...</p>
       <Divider orientation="left">Thursday</Divider>
-      <p>Today is ...</p>
+      <p>No Meals Selected...</p>
       <Divider orientation="left">Friday</Divider>
-      <p>Today is ...</p>
+      <p>No Meals Selected...</p>
       <Divider dashed />
     </div>
 )};
