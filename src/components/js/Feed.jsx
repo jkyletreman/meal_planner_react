@@ -7,8 +7,8 @@ import FoodCard from './FoodCard';
       - avatar img (user) // this is not coming from the database currently */
 const grid = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(12, 1fr)',
-  gridGap: '20px',
+  gridTemplateColumns: 'repeat(9, 1fr)',
+  gridGap: '10px',
 };
 
 export default class Feed extends Component {
