@@ -37,9 +37,7 @@ class Header extends React.Component {
   handleChange = (value) => {
     this.setState({ day: value })
   }
-  handleSubmission = () => {
 
-  }
   updateDay(info) {
     const day = this.state.day;
 
