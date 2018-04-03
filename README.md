@@ -18,3 +18,4 @@
 - Passing the cards to the weekly view
 - Moved state up to Header
 - State now managing cards selected
+- Weekly view rendering Day component with recipe information
