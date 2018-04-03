@@ -7,30 +7,20 @@ import FoodCard from './FoodCard';
       - avatar img (user) // this is not coming from the database currently */
 const grid = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(12, 1fr)',
-  gridGap: '20px',
+  gridTemplateColumns: 'repeat(9, 1fr)',
+  gridGap: '10px',
 };
 
 export default class Feed extends Component {
-  constructor() {
-    super();
-    this.state = {
-      info: [],
-    };
+  constructor(props) {
+    super(props);
   }
-  componentWillMount() {
-    this.getCards();
-  }
-  async getCards() {
-    const res = await fetch('/api/smallCards');
-    const cards = await res.json();
-    this.setState({ info: cards });
-  }
+
   render() {
     return (
       <div style={grid}>
-        {this.state.info.map(card =>
-          <FoodCard key={card.id} info={card} />)}
+        {this.props.info.map(card =>
+          <FoodCard key={card.id} info={card} day={this.props.day} updateDay={this.props.updateDay}/>)}
       </div>
     );
   }

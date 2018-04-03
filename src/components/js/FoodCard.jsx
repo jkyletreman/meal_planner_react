@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, Icon, Avatar } from 'antd';
-import PropTypes from 'prop-types';
+import { Card, Icon, Avatar, message } from 'antd';
 import 'antd/dist/antd.css';
 
 const { Meta } = Card;
@@ -11,51 +10,44 @@ const grid = {
   backgroundColor: 'white',
   width: '300px',
 };
-/* eslint arrow-body-style: [0] */
-const FoodCard = (props) => {
-  const {
-    info: {
-      img,
-      name,
-      summary,
-    } = {},
-  } = props;
 
-  return (
-    <React.Fragment>
-      <Card
-        hoverable
-        style={grid}
-        cover={
-          <img
-            style={{ height: 250 }}
-            alt="example"
-            src={img}
-          />}
-        actions={[
-          <Icon type="setting" />,
-          <Icon type="edit" />,
-          <Icon type="ellipsis" />,
-        ]}
-      >
-        <Meta
-          avatar={
-            <Avatar src="https://image.ibb.co/eML677/Profile.jpg" />}
-          title={name}
-          description={summary}
-        />
-      </Card>
-    </React.Fragment>
-  );
-};
-FoodCard.defaultProps = {
-  info: true,
-};
-FoodCard.propTypes = {
-  info: PropTypes.shape({
-    cardImg: PropTypes.string,
-    description: PropTypes.string,
-    title: PropTypes.string,
-  }),
-};
-export default FoodCard;
+export default class FoodCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    const info = this.props.info
+    this.props.updateDay(info)
+    message.info(`Added to ${this.props.day}`)
+  }
+
+  render() {
+    return (
+      <React.Fragment >
+        <div style={grid} >
+        <Card
+          hoverable
+          onClick={this.handleClick}
+          cover={
+            <img
+              style={{ height: 250 }}
+              alt="example"
+              src={this.props.info.img}
+            />}
+          actions={[
+            <Icon type="plus-circle" />,
+          ]}
+        >
+          <Meta
+            avatar={
+              <Avatar src="https://image.ibb.co/eML677/Profile.jpg" />}
+            title={this.props.info.name}
+            description={this.props.info.summary}
+          />
+        </Card>
+      </div>
+      </React.Fragment>
+    );
+  };
+}
