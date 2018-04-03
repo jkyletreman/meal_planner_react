@@ -3,6 +3,7 @@ import {Menu, Icon, Select, Button} from 'antd';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Feed from './Feed';
 import WeekView from './WeekView';
+import IngredientsList from './IngredientsList'
 const Option = Select.Option
 
 class Header extends React.Component {
@@ -93,6 +94,12 @@ class Header extends React.Component {
             </Link>
           </Menu.Item>
 
+          <Menu.Item key="file-text">
+            <Link to='/list'>
+              <Icon type="file-text"/>Shopping List
+            </Link>
+          </Menu.Item>
+
           <Menu.Item key="mail">
             <a href="https://ant.design" target="_blank" rel="noopener noreferrer">About</a>
           </Menu.Item>
@@ -111,6 +118,7 @@ class Header extends React.Component {
         <Switch>
           <Route exact="exact" path="/" render={() => <Feed updateDay={this.updateDay} info={this.state.info} day={this.state.day}/>}/>
           <Route exact="exact" path="/week" render={() => <WeekView week={this.state.week}/>}/>
+          <Route exact="exact" path="/list" render={() => <IngredientsList week={this.state.week}/>} />
         </Switch>
 
       </React.Fragment>
