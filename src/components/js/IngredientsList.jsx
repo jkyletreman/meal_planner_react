@@ -4,23 +4,21 @@ export default class IngredientsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ids: []
-    };
+      ids: [1, 2, 3],
+      ingredients: []
+      }
     this.getIngredients = this.getIngredients.bind(this);
     this.setIds = this.setIds.bind(this);
   }
 
   async getIngredients() {
-    const request = await fetch("/api/ingredients", {
-      method: "GET",
-      qs: '1 2 3'
-    });
-    const response = request.json();
+    const request = await fetch(`/api/ingredients?ids=${this.state.ids}`)
+    const response = await request.json();
+    this.setState({ingredients: response})
   }
 
   componentWillMount() {
-    const ingredients = this.getIngredients() || null;
-    console.log(ingredients);
+    this.getIngredients();
   }
 
   setIds() {
@@ -41,9 +39,9 @@ export default class IngredientsList extends Component {
   render() {
     return (
       <div>
-        {this.state.ids.map(id => {
-          <p>{id}</p>;
-        })}
+        {this.state.ingredients.map(ingredient =>
+          <p>{ingredient.name}</p>
+        )}
       </div>
     );
   }
