@@ -19,3 +19,6 @@
 - Moved state up to Header
 - State now managing cards selected
 - Weekly view rendering Day component with recipe information
+- Added IngredientsList view
+- Added ingredients query to server and fetch from front end
+- Add data vis to response 
