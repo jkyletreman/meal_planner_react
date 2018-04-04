@@ -40,7 +40,7 @@ export default class IngredientsList extends Component {
     return (
       <div>
         {this.state.ingredients.map(ingredient =>
-          <p>{ingredient.name}</p>
+          <p key={ingredient.id}>{ingredient.name}</p>
         )}
       </div>
     );
