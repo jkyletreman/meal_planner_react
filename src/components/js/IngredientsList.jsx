@@ -23,7 +23,7 @@ export default class IngredientsList extends Component {
   componentWillMount() {
     this.setIds();
   }
-
+  // take the selected meals and hold the database ids
   setIds() {
     const ids = [];
     const arrayArrayObject = Object.values(this.props.week);
@@ -50,7 +50,7 @@ export default class IngredientsList extends Component {
       }
     });
   }
-
+  // aggregating duplicates and creating a object with each ingredient as a key and all the information as values for antd
   toIngredientsObject(array) {
     const newObj = {};
 
@@ -80,7 +80,7 @@ export default class IngredientsList extends Component {
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
     const ingredientsToDisplay = Object.values(ingredientObject);
-    console.log(ingredientsToDisplay);
+
     const columns = [
       {
         title: "Name",
