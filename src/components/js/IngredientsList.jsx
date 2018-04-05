@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "antd"
+import { Table, Button, Affix } from "antd";
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -12,6 +12,8 @@ export default class IngredientsList extends Component {
     this.getIngredients = this.getIngredients.bind(this);
     this.setIds = this.setIds.bind(this);
     this.toIngredientsObject = this.toIngredientsObject.bind(this);
+    this.sendIngredients = this.sendIngredients.bind(this);
+    this.handleClickText = this.handleClickText.bind(this);
   }
 
   async getIngredients() {
@@ -69,18 +71,56 @@ export default class IngredientsList extends Component {
         };
       } else {
         newObj[name].amount += amount;
-        if (newObj[name].unit.slice(-1) !== 's') {
-          newObj[name].unit += 's';
+        if (newObj[name].unit.slice(-1) !== "s") {
+          newObj[name].unit += "s";
         }
       }
     });
     return newObj;
   }
 
+  handleClickText() {
+    const messageArray = this.state.ingredients;
+    const messageObj = {};
+
+    messageArray.map(obj => {
+      const name = obj.name;
+      const key = obj.id;
+      const amount = obj.amount;
+      const unit = obj.unit;
+
+      if (!messageObj[key]) {
+        messageObj[key] = {
+          name,
+          amount,
+          unit
+        };
+      } else {
+        messageObj[key].amount += amount;
+      }
+      this.sendIngredients(messageObj);
+    });
+  }
+
+  async sendIngredients(messageObj) {
+    fetch("/api/send", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+        toNumber: "19106126591",
+        message: { messageObj }
+      })
+    });
+  }
+
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
     const ingredientsToDisplay = Object.values(ingredientObject);
-
+    console.log({ ingredientObject });
     const columns = [
       {
         title: "Name",
@@ -101,8 +141,13 @@ export default class IngredientsList extends Component {
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
       <React.Fragment>
+        <Affix>
+          <Button onClick={this.handleClickText} type="primary">
+            Text Ingredients
+          </Button>
+        </Affix>
         {this.state.mealsSelected ? (
-            <Table columns={columns} dataSource={ingredientsToDisplay} />
+          <Table columns={columns} dataSource={ingredientsToDisplay} />
         ) : (
           <p>No Meals Selected</p>
         )}
