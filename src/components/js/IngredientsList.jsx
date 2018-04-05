@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Table } from "antd"
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -55,18 +56,22 @@ export default class IngredientsList extends Component {
 
     array.map(object => {
       const name = object.name;
-      const id = object.id;
+      const key = object.id;
       const amount = object.amount;
       const unit = object.unit;
 
       if (!newObj[name]) {
         newObj[name] = {
-          id,
+          key,
+          name,
           amount,
           unit
         };
       } else {
         newObj[name].amount += amount;
+        if (newObj[name].unit.slice(-1) !== 's') {
+          newObj[name].unit += 's';
+        }
       }
     });
     return newObj;
@@ -74,21 +79,30 @@ export default class IngredientsList extends Component {
 
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
-    const ingredientsToDisplay = Object.entries(ingredientObject);
+    const ingredientsToDisplay = Object.values(ingredientObject);
     console.log(ingredientsToDisplay);
+    const columns = [
+      {
+        title: "Name",
+        dataIndex: "name",
+        key: "name"
+      },
+      {
+        title: "Amount",
+        dataIndex: "amount",
+        key: "amount"
+      },
+      {
+        title: "Unit",
+        dataIndex: "unit",
+        key: "unit"
+      }
+    ];
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
       <React.Fragment>
         {this.state.mealsSelected ? (
-          ingredientsToDisplay.map(ingredient => {
-            return (
-              <div key={ingredient[1].id}>
-                <p>{ingredient[0]}</p>
-                <p>{ingredient[1].amount}</p>
-                <p>{ingredient[1].unit}</p>
-              </div>
-            );
-          })
+            <Table columns={columns} dataSource={ingredientsToDisplay} />
         ) : (
           <p>No Meals Selected</p>
         )}
