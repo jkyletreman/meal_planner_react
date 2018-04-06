@@ -80,29 +80,21 @@ export default class IngredientsList extends Component {
   }
 
   handleClickText() {
-    const messageArray = this.state.ingredients;
-    const messageObj = {};
+    const ingredients = this.toIngredientsObject(this.state.ingredients);
+    var messageString = "";
 
-    messageArray.map(obj => {
-      const name = obj.name;
-      const key = obj.id;
-      const amount = obj.amount;
-      const unit = obj.unit;
-
-      if (!messageObj[key]) {
-        messageObj[key] = {
-          name,
-          amount,
-          unit
-        };
-      } else {
-        messageObj[key].amount += amount;
+    const message = Object.values(ingredients).map(object => {
+      for (var value in object) {
+        if (value !== "key") {
+          // console.log(object[value])
+          messageString += `${object[value]} `;
+        }
       }
-      this.sendIngredients(messageObj);
     });
+    this.sendIngredients(messageString);
   }
 
-  async sendIngredients(messageObj) {
+  async sendIngredients(message) {
     fetch("/api/send", {
       method: "post",
       headers: {
@@ -112,7 +104,7 @@ export default class IngredientsList extends Component {
       },
       body: JSON.stringify({
         toNumber: "19106126591",
-        message: { messageObj }
+        message: message
       })
     });
   }
@@ -120,7 +112,7 @@ export default class IngredientsList extends Component {
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
     const ingredientsToDisplay = Object.values(ingredientObject);
-    console.log({ ingredientObject });
+
     const columns = [
       {
         title: "Name",
