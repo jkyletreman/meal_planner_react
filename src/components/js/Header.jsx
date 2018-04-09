@@ -1,10 +1,17 @@
 import React from "react";
-import { Menu, Icon, Select, Button } from "antd";
+import { Menu, Icon, Select, Button, Affix } from "antd";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Feed from "./Feed";
 import WeekView from "./WeekView";
 import IngredientsList from "./IngredientsList";
 const Option = Select.Option;
+
+const spacing = {
+  display: 'flex',
+  margin: "0 auto",
+  justifyContent: "center",
+  backgroundColor: '#ED5147',
+}
 
 class Header extends React.Component {
   constructor() {
@@ -22,6 +29,7 @@ class Header extends React.Component {
       }
     };
     this.updateDay = this.updateDay.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -85,6 +93,7 @@ class Header extends React.Component {
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
             mode="horizontal"
+            style={spacing}
           >
             <Menu.Item key="bank">
               <Link to="/">
@@ -106,27 +115,29 @@ class Header extends React.Component {
 
             <Menu.Item key="mail">
               <a
-                href="https://ant.design"
+                href="https://github.com/jkyletreman/meal_planner_react"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                About
+                <Icon type="github" />View the Code!
               </a>
             </Menu.Item>
 
-            <Select
-              defaultValue="Monday"
-              style={{
-                width: 120
-              }}
-              onChange={this.handleChange}
-            >
-              <Option value="Monday">Monday</Option>
-              <Option value="Tuesday">Tuesday</Option>
-              <Option value="Wednesday">Wednesday</Option>
-              <Option value="Thursday">Thursday</Option>
-              <Option value="Friday">Friday</Option>
-            </Select>
+            <Menu.Item>
+              <Select
+                defaultValue="Select a Day"
+                style={{
+                  width: 200
+                }}
+                onChange={this.handleChange}
+              >
+                <Option value="Monday">Monday</Option>
+                <Option value="Tuesday">Tuesday</Option>
+                <Option value="Wednesday">Wednesday</Option>
+                <Option value="Thursday">Thursday</Option>
+                <Option value="Friday">Friday</Option>
+              </Select>
+            </Menu.Item>
           </Menu>
 
           <Switch>

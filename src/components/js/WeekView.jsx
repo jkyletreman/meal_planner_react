@@ -1,9 +1,10 @@
 import React from 'react';
 import { Divider } from 'antd';
+import "../css/WeekView.css"
 
 const WeekView = (props) =>
     <div>
-      <h2>Your Weekly Dashboard</h2>
+      <h2 style={{color: 'white', fontSize: '30px'}}>Your Weekly Dashboard</h2>
       <Divider dashed />
       {Object.entries(props.week).map(([day, recipes]) =>
         <Day name={day} recipes={recipes}/>
@@ -16,7 +17,7 @@ const Day = ({name, recipes=[]}) =>
     <Divider orientation="left">{name}</Divider>
     <div>
     {recipes.map(recipe =>
-      <p>{recipe.name}</p>
+      <p style={{color: 'white', fontSize: "20px"}}>{recipe.name}</p>
     )}</div>
   </div>
 

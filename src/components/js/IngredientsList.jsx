@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "antd"
+import { Table, Button, Affix } from "antd";
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -12,6 +12,8 @@ export default class IngredientsList extends Component {
     this.getIngredients = this.getIngredients.bind(this);
     this.setIds = this.setIds.bind(this);
     this.toIngredientsObject = this.toIngredientsObject.bind(this);
+    this.sendIngredients = this.sendIngredients.bind(this);
+    this.handleClickText = this.handleClickText.bind(this);
   }
 
   async getIngredients() {
@@ -23,7 +25,7 @@ export default class IngredientsList extends Component {
   componentWillMount() {
     this.setIds();
   }
-
+  // take the selected meals and hold the database ids
   setIds() {
     const ids = [];
     const arrayArrayObject = Object.values(this.props.week);
@@ -50,7 +52,7 @@ export default class IngredientsList extends Component {
       }
     });
   }
-
+  // aggregating duplicates and creating a object with each ingredient as a key and all the information as values for antd
   toIngredientsObject(array) {
     const newObj = {};
 
@@ -69,18 +71,48 @@ export default class IngredientsList extends Component {
         };
       } else {
         newObj[name].amount += amount;
-        if (newObj[name].unit.slice(-1) !== 's') {
-          newObj[name].unit += 's';
+        if (newObj[name].unit.slice(-1) !== "s") {
+          newObj[name].unit += "s";
         }
       }
     });
     return newObj;
   }
 
+  handleClickText() {
+    const ingredients = this.toIngredientsObject(this.state.ingredients);
+    var messageString = "";
+
+    const message = Object.values(ingredients).map(object => {
+      for (var value in object) {
+        if (value !== "key") {
+          // console.log(object[value])
+          messageString += `${object[value]} `;
+        }
+      }
+    });
+    this.sendIngredients(messageString);
+  }
+
+  async sendIngredients(message) {
+    fetch("/api/send", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+        toNumber: "19106126591",
+        message: message
+      })
+    });
+  }
+
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
     const ingredientsToDisplay = Object.values(ingredientObject);
-    console.log(ingredientsToDisplay);
+
     const columns = [
       {
         title: "Name",
@@ -102,9 +134,38 @@ export default class IngredientsList extends Component {
     return (
       <React.Fragment>
         {this.state.mealsSelected ? (
-            <Table columns={columns} dataSource={ingredientsToDisplay} />
+          <React.Fragment>
+            <Table
+              style={{
+                backgroundColor: "white",
+                margin: "0 auto"
+              }}
+              columns={columns}
+              dataSource={ingredientsToDisplay}
+            />
+            <Button
+              style={{
+                margin: "0 auto",
+                justifyContent: "center",
+                alignSelf: "center"
+              }}
+              onClick={this.handleClickText}
+              type="primary"
+            >
+              Text Ingredients
+            </Button>
+          </React.Fragment>
         ) : (
-          <p>No Meals Selected</p>
+          <p
+            style={{
+              margin: "0 auto",
+              textAlign: "center",
+              fontSize: "30px",
+              color: "white"
+            }}
+          >
+            No Meals Selected
+          </p>
         )}
       </React.Fragment>
     );
