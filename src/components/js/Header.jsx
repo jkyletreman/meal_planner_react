@@ -7,11 +7,11 @@ import IngredientsList from "./IngredientsList";
 const Option = Select.Option;
 
 const spacing = {
-  display: 'flex',
+  display: "flex",
   margin: "0 auto",
   justifyContent: "center",
-  backgroundColor: '#ED5147',
-}
+  backgroundColor: "#ED5147"
+};
 
 class Header extends React.Component {
   constructor() {
