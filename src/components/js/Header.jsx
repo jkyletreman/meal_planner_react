@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Icon, Select, Button, Affix } from "antd";
+import { Menu, Icon, Select, Button } from "antd";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Feed from "./Feed";
 import WeekView from "./WeekView";
@@ -10,7 +10,8 @@ const spacing = {
   display: "flex",
   margin: "0 auto",
   justifyContent: "center",
-  backgroundColor: "#ED5147"
+  backgroundColor: "#ED5147",
+  fontSize: '18px',
 };
 
 class Header extends React.Component {
