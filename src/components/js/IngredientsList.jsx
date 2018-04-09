@@ -133,15 +133,39 @@ export default class IngredientsList extends Component {
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
       <React.Fragment>
-        <Affix>
-          <Button onClick={this.handleClickText} type="primary">
-            Text Ingredients
-          </Button>
-        </Affix>
         {this.state.mealsSelected ? (
-          <Table columns={columns} dataSource={ingredientsToDisplay} />
+          <React.Fragment>
+            <Table
+              style={{
+                backgroundColor: "white",
+                margin: "0 auto"
+              }}
+              columns={columns}
+              dataSource={ingredientsToDisplay}
+            />
+            <Button
+              style={{
+                margin: "0 auto",
+                justifyContent: "center",
+                alignSelf: "center"
+              }}
+              onClick={this.handleClickText}
+              type="primary"
+            >
+              Text Ingredients
+            </Button>
+          </React.Fragment>
         ) : (
-          <p>No Meals Selected</p>
+          <p
+            style={{
+              margin: "0 auto",
+              textAlign: "center",
+              fontSize: "30px",
+              color: "white"
+            }}
+          >
+            No Meals Selected
+          </p>
         )}
       </React.Fragment>
     );

@@ -6,6 +6,13 @@ import WeekView from "./WeekView";
 import IngredientsList from "./IngredientsList";
 const Option = Select.Option;
 
+const spacing = {
+  display: 'flex',
+  margin: "0 auto",
+  justifyContent: "center",
+  backgroundColor: '#ED5147',
+}
+
 class Header extends React.Component {
   constructor() {
     super();
@@ -86,6 +93,7 @@ class Header extends React.Component {
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
             mode="horizontal"
+            style={spacing}
           >
             <Menu.Item key="bank">
               <Link to="/">
@@ -119,7 +127,7 @@ class Header extends React.Component {
               <Select
                 defaultValue="Select a Day"
                 style={{
-                  width: 120
+                  width: 200
                 }}
                 onChange={this.handleChange}
               >

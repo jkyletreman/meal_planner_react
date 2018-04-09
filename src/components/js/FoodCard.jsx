@@ -4,6 +4,10 @@ import 'antd/dist/antd.css';
 
 const { Meta } = Card;
 
+const squareImg = {
+  height: '30vh',
+};
+
 const grid = {
   border: 'solid 1px black',
   gridColumn: 'span 3',
@@ -31,13 +35,10 @@ export default class FoodCard extends React.Component {
           onClick={this.handleClick}
           cover={
             <img
-              style={{ height: 250 }}
+              style={squareImg}
               alt="example"
               src={this.props.info.img}
             />}
-          actions={[
-            <Icon type="plus-circle" />,
-          ]}
         >
           <Meta
             avatar={
