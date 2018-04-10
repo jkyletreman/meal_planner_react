@@ -14,10 +14,10 @@ const WeekView = (props) =>
 
 const Day = ({name, recipes=[]}) =>
   <div>
-    <Divider orientation="left">{name}</Divider>
+    <Divider style={{fontSize: '16px'}} orientation="left">{name}</Divider>
     <div>
     {recipes.map(recipe =>
-      <p style={{ fontSize: "20px" }}>{recipe.name}</p>
+      <p>{recipe.name}</p>
     )}</div>
   </div>
 
