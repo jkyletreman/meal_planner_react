@@ -15,7 +15,9 @@ const spacing = {
 };
 
 const textColor = {
-  color: "white"
+  color: "white",
+  letterSpacing: "1px",
+  fontWeight: "200"
 }
 
 class Header extends React.Component {

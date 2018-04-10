@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Avatar, message } from "antd";
 import "antd/dist/antd.css";
+import "../css/FoodCard.css"
 
 const { Meta } = Card;
 

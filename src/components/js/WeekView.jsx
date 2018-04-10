@@ -11,7 +11,8 @@ const headerStyle = {
 const textStyle = {
   fontSize: "20px",
   color: "#ED5147",
-  letterSpacing: "2px"
+  letterSpacing: "2px",
+  fontWeight: "400"
 };
 
 const WeekView = props => (
