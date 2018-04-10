@@ -1,6 +1,9 @@
-## Meal Planner in React
+## Feed ME 
+### A Meal Planning App in React
 
-#### Pre-build steps
+We all have to eat, but that simple task can become tedious and time consuming, especially during the week. Feed Me, is a meal planner app uses that premise to make planning, scheduling and buying a weeks worth of meals easy. Users are able to select their meals, add them to a day of the week, view their shopping list and receive that list texted to them. Feed Me built with React, React Router, NodeJS, PostgreSQL, Electron, CircleCi and Ant Design.
+
+#### build steps
 - Created w create-react-app
 - Added ESLint, airbnb style guide
 - Added CircleCI
