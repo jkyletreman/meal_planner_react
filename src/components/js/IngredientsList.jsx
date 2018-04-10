@@ -156,7 +156,7 @@ export default class IngredientsList extends Component {
             </Button>
           </React.Fragment>
         ) : (
-          <p
+          <h2
             style={{
               margin: "0 auto",
               textAlign: "center",
@@ -164,7 +164,7 @@ export default class IngredientsList extends Component {
             }}
           >
             No Meals Selected
-          </p>
+          </h2>
         )}
       </React.Fragment>
     );
