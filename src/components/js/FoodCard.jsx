@@ -32,6 +32,7 @@ export default class FoodCard extends React.Component {
       <React.Fragment>
         <div style={grid}>
           <Card
+            style={{boxShadow: "1px 1px 1px black"}}
             hoverable
             onClick={this.handleClick}
             cover={
