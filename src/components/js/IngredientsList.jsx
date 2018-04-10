@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Button, Affix } from "antd";
+import { Table, Button } from "antd";
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -161,7 +161,6 @@ export default class IngredientsList extends Component {
               margin: "0 auto",
               textAlign: "center",
               fontSize: "30px",
-              color: "white"
             }}
           >
             No Meals Selected

@@ -1,3 +1,7 @@
 body {
-  background: #EF7D77;
+  background: #FBFEF9;
+}
+
+.ant-card .ant-card-body .ant-card-meta-description {
+  height: 50px;
 }
