@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Avatar, message } from "antd";
+import { Card, Avatar, message } from "antd";
 import "antd/dist/antd.css";
 
 const { Meta } = Card;

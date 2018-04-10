@@ -14,6 +14,10 @@ const spacing = {
   fontSize: '18px',
 };
 
+const textColor = {
+  color: "white"
+}
+
 class Header extends React.Component {
   constructor() {
     super();
@@ -97,25 +101,26 @@ class Header extends React.Component {
             style={spacing}
           >
             <Menu.Item key="bank">
-              <Link to="/">
+              <Link to="/" style={textColor}>
                 <Icon type="bank" />Feed
               </Link>
             </Menu.Item>
 
             <Menu.Item key="shake">
-              <Link to="/week">
+              <Link to="/week" style={textColor}>
                 <Icon type="shake" />Weekly
               </Link>
             </Menu.Item>
 
             <Menu.Item key="file-text">
-              <Link to="/list">
+              <Link to="/list" style={textColor}>
                 <Icon type="file-text" />Shopping List
               </Link>
             </Menu.Item>
 
             <Menu.Item key="mail">
               <a
+                style={textColor}
                 href="https://github.com/jkyletreman/meal_planner_react"
                 target="_blank"
                 rel="noopener noreferrer"
