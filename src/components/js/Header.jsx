@@ -100,15 +100,15 @@ class Header extends React.Component {
             mode="horizontal"
             style={spacing}
           >
-            <Menu.Item key="bank">
+            <Menu.Item key="dashboard">
               <Link to="/" style={textColor}>
-                <Icon type="bank" />Feed
+                <Icon type="dashboard" />Feed ME!
               </Link>
             </Menu.Item>
 
-            <Menu.Item key="shake">
+            <Menu.Item key="menu-unfold">
               <Link to="/week" style={textColor}>
-                <Icon type="shake" />Weekly
+                <Icon type="menu-unfold" />Weekly
               </Link>
             </Menu.Item>
 
