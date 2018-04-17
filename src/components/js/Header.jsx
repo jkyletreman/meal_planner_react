@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Feed from "./Feed";
 import WeekView from "./WeekView";
 import IngredientsList from "./IngredientsList";
+import "../css/Header.css"
 const Option = Select.Option;
 
 const spacing = {
@@ -11,7 +12,7 @@ const spacing = {
   margin: "0 auto",
   justifyContent: "center",
   backgroundColor: "#ED5147",
-  fontSize: '18px',
+  fontSize: '1.6em',
 };
 
 const textColor = {
@@ -43,7 +44,8 @@ class Header extends React.Component {
     this.getCards();
   }
   async getCards() {
-    const res = await fetch("https://feedme-node-api.herokuapp.com/api/smallCards");
+    // https://feedme-node-api.herokuapp.com/
+    const res = await fetch("api/smallCards");
     const cards = await res.json();
     this.setState({ info: cards });
   }
@@ -95,7 +97,7 @@ class Header extends React.Component {
   render() {
     return (
       <Router>
-        <React.Fragment>
+        <div className="main-container">
           <Menu
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
@@ -171,7 +173,7 @@ class Header extends React.Component {
               render={() => <IngredientsList week={this.state.week} />}
             />
           </Switch>
-        </React.Fragment>
+        </div>
       </Router>
     );
   }
