@@ -4,9 +4,9 @@
   font-family: sans-serif;
 }
 
-body {
-  background: #FBFEF9;
+body, html {
   max-width: 90vw;
+  background: #FBFEF9;
 }
 
 .ant-card .ant-card-body .ant-card-meta-description {
