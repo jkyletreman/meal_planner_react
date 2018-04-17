@@ -19,7 +19,7 @@ export default class App extends React.Component {
         Friday: []
       }
     };
-    this.setDay = this.setDay.bind(this)
+    this.setDayForRecipes = this.setDayForRecipes.bind(this)
     this.updateDayWithRecipe = this.updateDayWithRecipe.bind(this);
   }
 
@@ -33,7 +33,7 @@ export default class App extends React.Component {
     this.setState({ info: cards });
   }
 
-  setDay(value) {
+  setDayForRecipes(value) {
     this.setState({ day: value });
   };
 
@@ -80,7 +80,7 @@ export default class App extends React.Component {
       <Router>
         <React.Fragment>
           <Header
-            setDay={this.setDay}
+            setDayForRecipes={this.setDayForRecipes}
           />
           <Switch>
             <Route
