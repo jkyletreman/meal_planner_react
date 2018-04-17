@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FoodCard from "./FoodCard";
+import "../css/Feed.css"
 /* Each FoodCard component needs a
       - img url
       - title
@@ -7,10 +8,7 @@ import FoodCard from "./FoodCard";
       - avatar img (user) // this is not coming from the database currently */
 const grid = {
   display: "grid",
-  gridTemplateColumns: "repeat(3, 12fr)",
-  gridGap: "4%",
-  margin: "0 auto",
-  maxWidth: "100vw"
+  gridGap: "4rem",
 };
 
 export default class Feed extends Component {
@@ -20,7 +18,7 @@ export default class Feed extends Component {
 
   render() {
     return (
-      <div style={grid}>
+      <div style={grid} className="feed-flex">
         {this.props.info.map(card => (
           <div style={{ marginTop: "8%" }}>
             <FoodCard

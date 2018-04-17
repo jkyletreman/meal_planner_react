@@ -1,0 +1,6 @@
+.feed-flex {
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  margin: 2rem;
+  width: 100%;
+}
