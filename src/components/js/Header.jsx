@@ -33,7 +33,7 @@ export default class Header extends React.Component {
     // this.setState({ current: e.key });
   };
   handleChange = (value) => {
-    this.props.setDay(value);
+    this.props.setDayForRecipes(value);
   };
   render() {
     return (
