@@ -43,7 +43,7 @@ class Header extends React.Component {
     this.getCards();
   }
   async getCards() {
-    const res = await fetch("/api/smallCards");
+    const res = await fetch("https://feedme-node-api.herokuapp.com/api/smallCards");
     const cards = await res.json();
     this.setState({ info: cards });
   }
