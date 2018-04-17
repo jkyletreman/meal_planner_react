@@ -20,6 +20,7 @@ export default class App extends React.Component {
       }
     };
     this.setDay = this.setDay.bind(this)
+    this.updateDayWithRecipe = this.updateDayWithRecipe.bind(this);
   }
 
   componentWillMount() {
@@ -36,10 +37,10 @@ export default class App extends React.Component {
     this.setState({ day: value });
   };
 
-  updateDay(info) {
+  updateDayWithRecipe(info) {
     const day = this.state.day;
 
-    switch (this.state.day) {
+    switch (day) {
       case "Monday":
         const monday = this.state.week.Monday;
         monday.push(info);
@@ -87,7 +88,7 @@ export default class App extends React.Component {
               path="/"
               render={() => (
                 <Feed
-                  updateDay={this.updateDay}
+                  updateDayWithRecipe={this.updateDayWithRecipe}
                   info={this.state.info}
                   day={this.state.day}
                 />

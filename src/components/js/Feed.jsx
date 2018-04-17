@@ -25,7 +25,7 @@ export default class Feed extends Component {
               key={card.id}
               info={card}
               day={this.props.day}
-              updateDay={this.props.updateDay}
+              updateDayWithRecipe={this.props.updateDayWithRecipe}
             />
           </div>
         ))}

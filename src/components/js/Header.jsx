@@ -28,8 +28,9 @@ export default class Header extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick = e => {
-    this.setState({ current: e.key });
+  handleClick = value => {
+    console.log(value)
+    // this.setState({ current: e.key });
   };
   handleChange = (value) => {
     this.props.setDay(value);

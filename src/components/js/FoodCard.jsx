@@ -12,7 +12,7 @@ export default class FoodCard extends React.Component {
   }
   handleClick() {
     const info = this.props.info;
-    this.props.updateDay(info);
+    this.props.updateDayWithRecipe(info);
     message.info(`Added to ${this.props.day}`);
   }
 
