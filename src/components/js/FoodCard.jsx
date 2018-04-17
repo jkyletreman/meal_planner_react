@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Avatar, message } from "antd";
 import "antd/dist/antd.css";
+import "../css/FoodCard.css"
 
 const { Meta } = Card;
 
@@ -32,6 +33,7 @@ export default class FoodCard extends React.Component {
         <div style={grid}>
           <Card
             hoverable
+            style={{boxShadow: "1.5px 1.5px 1.5px black"}}
             onClick={this.handleClick}
             cover={
               <img style={squareImg} alt="example" src={this.props.info.img} />

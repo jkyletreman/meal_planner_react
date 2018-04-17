@@ -15,7 +15,9 @@ const spacing = {
 };
 
 const textColor = {
-  color: "white"
+  color: "white",
+  letterSpacing: "1px",
+  fontWeight: "200"
 }
 
 class Header extends React.Component {
@@ -41,7 +43,7 @@ class Header extends React.Component {
     this.getCards();
   }
   async getCards() {
-    const res = await fetch("/api/smallCards");
+    const res = await fetch("https://feedme-node-api.herokuapp.com/api/smallCards");
     const cards = await res.json();
     this.setState({ info: cards });
   }
@@ -100,15 +102,15 @@ class Header extends React.Component {
             mode="horizontal"
             style={spacing}
           >
-            <Menu.Item key="bank">
+            <Menu.Item key="dashboard">
               <Link to="/" style={textColor}>
-                <Icon type="bank" />Feed
+                <Icon type="dashboard" />Feed ME!
               </Link>
             </Menu.Item>
 
-            <Menu.Item key="shake">
+            <Menu.Item key="menu-unfold">
               <Link to="/week" style={textColor}>
-                <Icon type="shake" />Weekly
+                <Icon type="menu-unfold" />Weekly
               </Link>
             </Menu.Item>
 

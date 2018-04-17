@@ -17,7 +17,7 @@ export default class IngredientsList extends Component {
   }
 
   async getIngredients() {
-    const request = await fetch(`/api/ingredients?ids=${this.state.ids}`);
+    const request = await fetch(`https://feedme-node-api.herokuapp.com/api/ingredients?ids=${this.state.ids}`);
     const response = await request.json();
     this.setState({ ingredients: response });
   }
@@ -156,7 +156,7 @@ export default class IngredientsList extends Component {
             </Button>
           </React.Fragment>
         ) : (
-          <p
+          <h2
             style={{
               margin: "0 auto",
               textAlign: "center",
@@ -164,7 +164,7 @@ export default class IngredientsList extends Component {
             }}
           >
             No Meals Selected
-          </p>
+          </h2>
         )}
       </React.Fragment>
     );
