@@ -24,7 +24,7 @@ export default class MobileNav extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mobile-header-flex">
         <Menu>
           <Link to="/">
             <Icon type="dashboard" />Feed ME!
@@ -40,10 +40,7 @@ export default class MobileNav extends React.Component {
         </Menu>
         <Select
           defaultValue="Select a Day"
-          style={{
-            width: 200,
-            float: "right"
-          }}
+          className="mobile-select-day"
           onChange={this.handleChange}
         >
           <Option value="Monday">Monday</Option>

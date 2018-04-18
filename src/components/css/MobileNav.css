@@ -1,6 +1,19 @@
+.mobile-header-flex {
+  display: grid;
+  flex-direction: row;
+}
+
+.mobile-select-day {
+  padding-top: 2rem;
+  grid-row: 1;
+  grid-column: 2;
+  max-width: 200px;
+}
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  grid-row: 1;
+  grid-column: 1;
+  position: relative;
   width: 36px;
   height: 30px;
   left: 36px;
