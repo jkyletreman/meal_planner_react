@@ -37,15 +37,16 @@ export default class MobileNav extends React.Component {
           </Link>
         </Menu>
         <Select
+          style={{fontSize: "1.3em"}}
           defaultValue="Select a Day"
           className="mobile-select-day"
           onChange={this.handleChange}
         >
-          <Option value="Monday">Monday</Option>
-          <Option value="Tuesday">Tuesday</Option>
-          <Option value="Wednesday">Wednesday</Option>
-          <Option value="Thursday">Thursday</Option>
-          <Option value="Friday">Friday</Option>
+          <Option style={{fontSize: "1.6em", padding: "1rem"}} value="Monday">Monday</Option>
+          <Option style={{fontSize: "1.6em", padding: "1rem"}} value="Tuesday">Tuesday</Option>
+          <Option style={{fontSize: "1.6em", padding: "1rem"}} value="Wednesday">Wednesday</Option>
+          <Option style={{fontSize: "1.6em", padding: "1rem"}} value="Thursday">Thursday</Option>
+          <Option style={{fontSize: "1.6em", padding: "1rem"}} value="Friday">Friday</Option>
         </Select>
       </div>
     );
