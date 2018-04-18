@@ -16,7 +16,7 @@ const textStyle = {
 };
 
 const WeekView = props => (
-  <div>
+  <div style={{paddingTop: "5rem"}}>
     <h2 style={headerStyle}>Your Weekly Dashboard</h2>
     <Divider dashed />
     {Object.entries(props.week).map(([day, recipes]) => (

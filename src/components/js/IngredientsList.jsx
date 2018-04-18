@@ -15,9 +15,9 @@ export default class IngredientsList extends Component {
     this.sendIngredients = this.sendIngredients.bind(this);
     this.handleClickText = this.handleClickText.bind(this);
   }
-
+// https://feedme-node-api.herokuapp.com
   async getIngredients() {
-    const request = await fetch(`https://feedme-node-api.herokuapp.com/api/ingredients?ids=${this.state.ids}`);
+    const request = await fetch(`/api/ingredients?ids=${this.state.ids}`);
     const response = await request.json();
     this.setState({ ingredients: response });
   }
@@ -132,7 +132,7 @@ export default class IngredientsList extends Component {
     ];
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
-      <React.Fragment>
+      <div style={{paddingTop: "5rem"}}>
         {this.state.mealsSelected ? (
           <React.Fragment>
             <Table
@@ -166,7 +166,7 @@ export default class IngredientsList extends Component {
             No Meals Selected
           </h2>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
