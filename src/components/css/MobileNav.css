@@ -10,23 +10,20 @@
 .mobile-header-flex {
   display: grid;
   margin: 0 auto;
-  max-width: 95vw;
 }
 .mobile-hamburger-text {
   font-size: 1.3em;
   border: 1px solid black;
   color: black;
   text-decoration: none;
-  padding: 2rem;
   margin: 1rem auto;
 }
 
 .mobile-select-day {
-  padding-top: 2rem;
   grid-row: 1;
   grid-column: 2;
   max-width: 200px;
-  height: 2rem;
+  padding-top: 2rem;
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
