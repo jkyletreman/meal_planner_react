@@ -10,6 +10,7 @@
 .mobile-header-flex {
   display: grid;
   margin: 0 auto;
+  padding: 1rem;
 }
 .mobile-hamburger-text {
   font-size: 1.3em;
