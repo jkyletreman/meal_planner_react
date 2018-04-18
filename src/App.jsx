@@ -30,8 +30,7 @@ export default class App extends React.Component {
     this.getCards();
   }
   async getCards() {
-    // https://feedme-node-api.herokuapp.com/
-    const res = await fetch("api/smallCards");
+    const res = await fetch("https://feedme-node-api.herokuapp.com/api/smallCards");
     const cards = await res.json();
     this.setState({ info: cards });
   }
