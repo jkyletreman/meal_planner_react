@@ -86,7 +86,7 @@ export default class App extends React.Component {
       return (
         <Router>
           <React.Fragment>
-            <MobileNav />
+            <MobileNav setDayForRecipes={this.setDayForRecipes}/>
             <Switch>
               <Route
                 exact="exact"
