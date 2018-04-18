@@ -1,6 +1,24 @@
+.ant-select-selection {
+  height: 2.5rem;
+  font-size: 1.3em;
+}
+.ant-select-selection-selected-value {
+  text-align: center;
+  float: none;
+  padding: .2rem;
+}
 .mobile-header-flex {
   display: grid;
-  flex-direction: row;
+  margin: 0 auto;
+  margin-right: 1rem;
+}
+.mobile-hamburger-text {
+  font-size: 1.3em;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+  padding: 2rem;
+  margin: 1rem auto;
 }
 
 .mobile-select-day {
@@ -8,6 +26,7 @@
   grid-row: 1;
   grid-column: 2;
   max-width: 200px;
+  height: 2rem;
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -38,7 +57,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: rgb(255, 255, 255);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }

@@ -25,17 +25,17 @@ export default class MobileNav extends React.Component {
   render() {
     return (
       <div className="mobile-header-flex">
-        <Menu>
-          <Link to="/">
-            <Icon type="dashboard" />Feed ME!
+        <Menu >
+          <Link className="mobile-hamburger-text" to="/">
+            <Icon type="dashboard" />  Feed ME!
           </Link>
 
-          <Link to="/week">
-            <Icon type="menu-unfold" />Weekly
+          <Link className="mobile-hamburger-text" to="/week">
+            <Icon type="menu-unfold" />  Weekly
           </Link>
 
-          <Link to="/list">
-            <Icon type="file-text" />Shopping List
+          <Link className="mobile-hamburger-text" to="/list">
+            <Icon type="file-text" />  Shopping List
           </Link>
         </Menu>
         <Select
