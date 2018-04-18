@@ -10,14 +10,12 @@ export default class MobileNav extends React.Component {
   showSettings(event) {
     event.preventDefault();
   }
-
   constructor() {
     super();
     this.state = {
       current: ""
     };
   }
-
   handleChange = value => {
     this.props.setDayForRecipes(value);
   };

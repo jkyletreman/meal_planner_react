@@ -10,7 +10,7 @@ const spacing = {
   margin: "0 auto",
   justifyContent: "center",
   backgroundColor: "#ED5147",
-  fontSize: "1.6em"
+  fontSize: "1.6em",
 };
 
 const textColor = {
