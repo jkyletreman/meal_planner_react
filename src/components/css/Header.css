@@ -7,3 +7,7 @@
 .ant-menu-item {
   height: 50%;
 }
+
+.menu-spacing {
+  margin: 1rem;
+}
