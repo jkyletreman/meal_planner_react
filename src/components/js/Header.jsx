@@ -10,7 +10,7 @@ const spacing = {
   margin: "0 auto",
   justifyContent: "center",
   backgroundColor: "#ED5147",
-  fontSize: "1.6em",
+  fontSize: "1.6em"
 };
 
 const textColor = {
@@ -23,10 +23,10 @@ export default class DesktopHeader extends React.Component {
   constructor() {
     super();
     this.state = {
-      current: "",
+      current: ""
     };
-  };
-  handleChange = (value) => {
+  }
+  handleChange = value => {
     this.props.setDayForRecipes(value);
   };
   render() {
@@ -40,25 +40,26 @@ export default class DesktopHeader extends React.Component {
             style={spacing}
           >
             <Menu.Item key="dashboard">
-              <Link to="/" style={textColor}>
+              <Link className="menu-spacing" to="/" style={textColor}>
                 <Icon type="dashboard" />Feed ME!
               </Link>
             </Menu.Item>
 
             <Menu.Item key="menu-unfold">
-              <Link to="/week" style={textColor}>
+              <Link className="menu-spacing" to="/week" style={textColor}>
                 <Icon type="menu-unfold" />Weekly
               </Link>
             </Menu.Item>
 
             <Menu.Item key="file-text">
-              <Link to="/list" style={textColor}>
+              <Link className="menu-spacing" to="/list" style={textColor}>
                 <Icon type="file-text" />Shopping List
               </Link>
             </Menu.Item>
 
             <Menu.Item key="mail">
               <a
+                className="menu-spacing"
                 style={textColor}
                 href="https://github.com/jkyletreman/meal_planner_react"
                 target="_blank"
@@ -68,19 +69,20 @@ export default class DesktopHeader extends React.Component {
               </a>
             </Menu.Item>
 
-            <Menu.Item>
+            <Menu.Item >
               <Select
                 defaultValue="Select a Day"
                 style={{
-                  width: 200
+                  width: 200,
+                  margin: "1rem"
                 }}
                 onChange={this.handleChange}
               >
-                <Option value="Monday">Monday</Option>
-                <Option value="Tuesday">Tuesday</Option>
-                <Option value="Wednesday">Wednesday</Option>
-                <Option value="Thursday">Thursday</Option>
-                <Option value="Friday">Friday</Option>
+                <Option style={{fontSize: "1.4em"}} value="Monday">Monday</Option>
+                <Option style={{fontSize: "1.4em"}} value="Tuesday">Tuesday</Option>
+                <Option style={{fontSize: "1.4em"}} value="Wednesday">Wednesday</Option>
+                <Option style={{fontSize: "1.4em"}} value="Thursday">Thursday</Option>
+                <Option style={{fontSize: "1.4em"}} value="Friday">Friday</Option>
               </Select>
             </Menu.Item>
           </Menu>
