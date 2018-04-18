@@ -1,3 +1,12 @@
+.ant-select-selection {
+  height: 2.5rem;
+  font-size: 1.3em;
+}
+.ant-select-selection-selected-value {
+  text-align: center;
+  float: none;
+  padding: .2rem;
+}
 .mobile-header-flex {
   display: grid;
   flex-direction: row;
@@ -8,6 +17,7 @@
   grid-row: 1;
   grid-column: 2;
   max-width: 200px;
+  height: 2rem;
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
