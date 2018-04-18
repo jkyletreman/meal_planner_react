@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+.food-card-spacing {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 @media screen and (max-width: 450px) {
   .feed-flex {
     display: flex;

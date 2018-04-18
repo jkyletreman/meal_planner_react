@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FoodCard from "./FoodCard";
-import "../css/Feed.css"
+import "../css/Feed.css";
 /* Each FoodCard component needs a
       - img url
       - title
@@ -16,7 +16,7 @@ export default class Feed extends Component {
     return (
       <div className="feed-flex">
         {this.props.info.map(card => (
-          <div style={{ marginTop: "8%" }}>
+          <div className="food-card-spacing">
             <FoodCard
               key={card.id}
               info={card}
