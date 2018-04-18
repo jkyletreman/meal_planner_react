@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Avatar, message } from "antd";
+import { Card, Avatar, message, Icon } from "antd";
 import "antd/dist/antd.css";
 import "../css/FoodCard.css"
 
@@ -23,7 +23,8 @@ export default class FoodCard extends React.Component {
             className="feed-food-card"
             hoverable
             style={{boxShadow: "1.5px 1.5px 1.5px black"}}
-            onClick={this.handleClick}
+
+            actions={[<Icon onClick={this.handleClick} type="plus-circle-o" />, <Icon type="info-circle-o" />]}
             cover={
               <img className="feed-food-card-img" alt="example" src={this.props.info.img} />
             }
