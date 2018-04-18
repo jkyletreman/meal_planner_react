@@ -1,9 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Header from "./components/js/Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import DesktopHeader from "./components/js/Header";
 import Feed from "./components/js/Feed";
 import WeekView from "./components/js/WeekView";
 import IngredientsList from "./components/js/IngredientsList";
+import MobileNav from "./components/js/MobileNav";
+import "./App.css";
 
 export default class App extends React.Component {
   constructor() {
@@ -17,9 +19,10 @@ export default class App extends React.Component {
         Wednesday: [],
         Thursday: [],
         Friday: []
-      }
+      },
+      screenSize: window.innerWidth
     };
-    this.setDayForRecipes = this.setDayForRecipes.bind(this)
+    this.setDayForRecipes = this.setDayForRecipes.bind(this);
     this.updateDayWithRecipe = this.updateDayWithRecipe.bind(this);
   }
 
@@ -35,7 +38,7 @@ export default class App extends React.Component {
 
   setDayForRecipes(value) {
     this.setState({ day: value });
-  };
+  }
 
   updateDayWithRecipe(info) {
     const day = this.state.day;
@@ -76,37 +79,71 @@ export default class App extends React.Component {
     }
   }
   render() {
-    return (
-      <Router>
-        <React.Fragment>
-          <Header
-            setDayForRecipes={this.setDayForRecipes}
-          />
-          <Switch>
-            <Route
-              exact="exact"
-              path="/"
-              render={() => (
-                <Feed
-                  updateDayWithRecipe={this.updateDayWithRecipe}
-                  info={this.state.info}
-                  day={this.state.day}
-                />
-              )}
-            />
-            <Route
-              exact="exact"
-              path="/week"
-              render={() => <WeekView week={this.state.week} />}
-            />
-            <Route
-              exact="exact"
-              path="/list"
-              render={() => <IngredientsList week={this.state.week} />}
-            />
-          </Switch>
-        </React.Fragment>
-      </Router>
-    );
+    const { screenSize } = this.state;
+    const isMobile = screenSize <= 500;
+
+    if (isMobile) {
+      return (
+        <Router>
+          <React.Fragment>
+            <MobileNav />
+            <Switch>
+              <Route
+                exact="exact"
+                path="/"
+                render={() => (
+                  <Feed
+                    updateDayWithRecipe={this.updateDayWithRecipe}
+                    info={this.state.info}
+                    day={this.state.day}
+                  />
+                )}
+              />
+              <Route
+                exact="exact"
+                path="/week"
+                render={() => <WeekView week={this.state.week} />}
+              />
+              <Route
+                exact="exact"
+                path="/list"
+                render={() => <IngredientsList week={this.state.week} />}
+              />
+            </Switch>
+          </React.Fragment>
+        </Router>
+      );
+    } else {
+      return (
+        <Router>
+          <div className="main-wrapper">
+            <DesktopHeader setDayForRecipes={this.setDayForRecipes} />
+            <Switch>
+              <Route
+                exact="exact"
+                path="/"
+                render={() => (
+                  <Feed
+                    updateDayWithRecipe={this.updateDayWithRecipe}
+                    info={this.state.info}
+                    day={this.state.day}
+                  />
+                )}
+              />
+              <Route
+                exact="exact"
+                path="/week"
+                render={() => <WeekView week={this.state.week} />}
+              />
+              <Route
+                exact="exact"
+                path="/list"
+                render={() => <IngredientsList week={this.state.week} />}
+              />
+            </Switch>
+          </div>
+        </Router>
+      );
+    }
   }
 }

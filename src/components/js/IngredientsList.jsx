@@ -132,7 +132,7 @@ export default class IngredientsList extends Component {
     ];
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
-      <React.Fragment>
+      <div style={{paddingTop: "5rem"}}>
         {this.state.mealsSelected ? (
           <React.Fragment>
             <Table
@@ -166,7 +166,7 @@ export default class IngredientsList extends Component {
             No Meals Selected
           </h2>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }

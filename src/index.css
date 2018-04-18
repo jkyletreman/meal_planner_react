@@ -7,7 +7,3 @@
 body, html {
   background: #FBFEF9;
 }
-
-.ant-card .ant-card-body .ant-card-meta-description {
-  min-height: 50px;
-}

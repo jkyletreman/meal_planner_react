@@ -9,6 +9,8 @@ import "../css/Feed.css"
 const grid = {
   display: "grid",
   gridGap: "4rem",
+  paddingTop: "1rem",
+  height: "100%"
 };
 
 export default class Feed extends Component {

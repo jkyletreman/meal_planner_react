@@ -1,8 +1,7 @@
 import React from "react";
-import { Menu, Icon, Select, Button } from "antd";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Menu, Icon, Select } from "antd";
+import { Link } from "react-router-dom";
 
-import TestNav from "./TestNav";
 import "../css/Header.css";
 const Option = Select.Option;
 
@@ -20,17 +19,12 @@ const textColor = {
   fontWeight: "200"
 };
 
-export default class Header extends React.Component {
+export default class DesktopHeader extends React.Component {
   constructor() {
     super();
     this.state = {
       current: "",
     };
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick = value => {
-    console.log(value)
-    // this.setState({ current: e.key });
   };
   handleChange = (value) => {
     this.props.setDayForRecipes(value);
