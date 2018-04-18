@@ -18,6 +18,7 @@ export default class Feed extends Component {
         {this.props.info.map(card => (
           <div className="food-card-spacing">
             <FoodCard
+              className="food-card-main"
               key={card.id}
               info={card}
               day={this.props.day}
