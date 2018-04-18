@@ -6,12 +6,6 @@ import "../css/Feed.css"
       - title
       - description (short)
       - avatar img (user) // this is not coming from the database currently */
-const grid = {
-  display: "grid",
-  gridGap: "4rem",
-  paddingTop: "1rem",
-  height: "100%"
-};
 
 export default class Feed extends Component {
   constructor(props) {
@@ -20,7 +14,7 @@ export default class Feed extends Component {
 
   render() {
     return (
-      <div style={grid} className="feed-flex">
+      <div className="feed-flex">
         {this.props.info.map(card => (
           <div style={{ marginTop: "8%" }}>
             <FoodCard
