@@ -25,7 +25,7 @@ export default class FoodCard extends React.Component {
             style={{boxShadow: "1.5px 1.5px 1.5px black"}}
             onClick={this.handleClick}
             cover={
-              <img alt="example" src={this.props.info.img} />
+              <img className="feed-food-card-img" alt="example" src={this.props.info.img} />
             }
           >
             <Meta
