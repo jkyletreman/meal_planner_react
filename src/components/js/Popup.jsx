@@ -31,12 +31,10 @@ export default class Popup extends React.Component {
   //   this.getAllCardInfo();
   // };
   render() {
-    const { difficulty } = this.state.info
-    console.log(`Im what youre looking for ${this.state.info.difficulty}`)
-
     return (
       <div>
         <Icon
+          style={{ fontSize: "1.7em", margin: "0 auto" }}
           type="info-circle-o"
           onMouseOver={this.onHoverInfo}
           onClick={this.showModal}

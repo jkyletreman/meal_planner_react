@@ -13,11 +13,13 @@
   padding: 1rem;
 }
 .mobile-hamburger-text {
-  font-size: 1.3em;
+  font-size: 1.4em;
   border: 1px solid black;
   color: black;
   text-decoration: none;
   margin: 1rem auto;
+  padding: 1.4rem;
+  font-family: 'Roboto Slab', serif;
 }
 
 .mobile-select-day {
@@ -55,7 +57,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgb(255, 255, 255);
+  background: white;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -74,4 +76,8 @@
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.hamburger-select-text {
+  font-family: 'Roboto Slab', serif;
 }

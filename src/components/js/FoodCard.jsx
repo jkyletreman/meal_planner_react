@@ -24,7 +24,11 @@ export default class FoodCard extends React.Component {
           hoverable
           style={{ boxShadow: "1.5px 1.5px 1.5px black" }}
           actions={[
-            <Icon onClick={this.handleClickAdd} type="plus-circle-o" />,
+            <Icon
+              style={{ fontSize: "1.7em", margin: "0 auto" }}
+              onClick={this.handleClickAdd}
+              type="plus-circle-o"
+            />,
             <Popup
               recipeId={this.props.info.id}
               recipeName={this.props.info.name}
