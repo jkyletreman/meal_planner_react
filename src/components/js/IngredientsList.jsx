@@ -18,9 +18,9 @@ export default class IngredientsList extends Component {
     this.handleClickText = this.handleClickText.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  //https://feedme-node-api.herokuapp.com/
+  //
   async getIngredients() {
-    const request = await fetch(`api/ingredients?ids=${this.state.ids}`);
+    const request = await fetch(`https://feedme-node-api.herokuapp.com/api/ingredients?ids=${this.state.ids}`);
     const response = await request.json();
     this.setState({ ingredients: response });
   }
