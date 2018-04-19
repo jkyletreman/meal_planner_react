@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Avatar, message, Icon } from "antd";
-import Popup from "./Popup"
+import Popup from "./Popup";
 import "antd/dist/antd.css";
 import "../css/FoodCard.css";
 
@@ -25,7 +25,11 @@ export default class FoodCard extends React.Component {
           style={{ boxShadow: "1.5px 1.5px 1.5px black" }}
           actions={[
             <Icon onClick={this.handleClickAdd} type="plus-circle-o" />,
-            <Popup recipeId={this.props.info.id}/>
+            <Popup
+              recipeId={this.props.info.id}
+              recipeName={this.props.info.name}
+              recipeSummary={this.props.info.summary}
+            />
           ]}
           cover={
             <img
