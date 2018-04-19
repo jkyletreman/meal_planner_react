@@ -1,0 +1,32 @@
+.form-container {
+  margin: 1rem;
+  display: flex;
+  max-width: 100%;
+
+}
+
+.form-text {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
+.form-btn {
+
+}
+
+.form-input {
+}
+
+@media screen and (max-width: 450px) {
+  .form-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .form-container {
+    flex-direction: row;
+  }
+}
