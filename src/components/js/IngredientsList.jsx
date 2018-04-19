@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Table, Button } from "antd";
-import "../css/IngredientsList.css"
+import { message, Table, Button } from "antd";
+import "../css/IngredientsList.css";
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -8,8 +8,8 @@ export default class IngredientsList extends Component {
     this.state = {
       ids: [],
       ingredients: [],
-      mealsSelected: true,
-      number: "",
+      mealsSelected: false,
+      number: ""
     };
     this.getIngredients = this.getIngredients.bind(this);
     this.setIds = this.setIds.bind(this);
@@ -141,6 +141,10 @@ export default class IngredientsList extends Component {
         key: "unit"
       }
     ];
+    const info = () => {
+      message.info(`Shopping List Texted to ${this.state.number}`);
+      this.handleClickText();
+    };
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
       <div style={{ paddingTop: "1rem", width: "100%" }}>
@@ -156,7 +160,7 @@ export default class IngredientsList extends Component {
               dataSource={ingredientsToDisplay}
             />
             <div className="form-container">
-              <h3 className="form-text" >Enter Your Number</h3>
+              <h3 className="form-text">Enter Your Number</h3>
               <form onSubmit={this.handleSubmit}>
                 <div>
                   <input
@@ -169,15 +173,15 @@ export default class IngredientsList extends Component {
                 </div>
                 <h3 className="form-item">Text Your List</h3>
                 {/* <input type="submit" value="Add a Product" /> */}
-            <Button
-              onClick={this.handleClickText}
-              type="primary"
-              className="form-btn"
-            >
-              Text Ingredients
-            </Button>
-          </form>
-          </div>
+                <Button
+                  onClick={info}
+                  type="primary"
+                  className="form-btn"
+                >
+                  Text Ingredients
+                </Button>
+              </form>
+            </div>
           </React.Fragment>
         ) : (
           <h2
