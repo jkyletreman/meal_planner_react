@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, Button } from "antd";
+import "../css/IngredientsList.css"
 
 export default class IngredientsList extends Component {
   constructor(props) {
@@ -7,17 +8,19 @@ export default class IngredientsList extends Component {
     this.state = {
       ids: [],
       ingredients: [],
-      mealsSelected: false
+      mealsSelected: true,
+      number: "",
     };
     this.getIngredients = this.getIngredients.bind(this);
     this.setIds = this.setIds.bind(this);
     this.toIngredientsObject = this.toIngredientsObject.bind(this);
     this.sendIngredients = this.sendIngredients.bind(this);
     this.handleClickText = this.handleClickText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-//
+  //https://feedme-node-api.herokuapp.com/
   async getIngredients() {
-    const request = await fetch(`https://feedme-node-api.herokuapp.com/api/ingredients?ids=${this.state.ids}`);
+    const request = await fetch(`api/ingredients?ids=${this.state.ids}`);
     const response = await request.json();
     this.setState({ ingredients: response });
   }
@@ -103,12 +106,20 @@ export default class IngredientsList extends Component {
         "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify({
-        toNumber: "19106126591",
+        toNumber: `1${this.state.number}`,
         message: message
       })
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.createProduct(this.state);
+  }
+
+  handleChange(e) {
+    this.setState({ number: e.target.value });
+  }
   render() {
     const ingredientObject = this.toIngredientsObject(this.state.ingredients);
     const ingredientsToDisplay = Object.values(ingredientObject);
@@ -132,34 +143,48 @@ export default class IngredientsList extends Component {
     ];
     // when mapped over position 0 will be the name and position 1 will be the data
     return (
-      <div style={{paddingTop: "1rem", width: "100%"}}>
+      <div style={{ paddingTop: "1rem", width: "100%" }}>
         {this.state.mealsSelected ? (
           <React.Fragment>
             <Table
               style={{
                 backgroundColor: "white",
                 margin: "0 auto",
-                padding: "2rem auto",
+                padding: "2rem auto"
               }}
               columns={columns}
               dataSource={ingredientsToDisplay}
             />
+            <div className="form-container">
+              <h3 className="form-text" >Enter Your Number</h3>
+              <form onSubmit={this.handleSubmit}>
+                <div>
+                  <input
+                    className="form-input"
+                    type="text"
+                    name="number"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <h3 className="form-item">Text Your List</h3>
+                {/* <input type="submit" value="Add a Product" /> */}
             <Button
-              style={{
-                margin: "1rem",
-              }}
               onClick={this.handleClickText}
               type="primary"
+              className="form-btn"
             >
               Text Ingredients
             </Button>
+          </form>
+          </div>
           </React.Fragment>
         ) : (
           <h2
             style={{
               margin: "0 auto",
               textAlign: "center",
-              fontSize: "30px",
+              fontSize: "30px"
             }}
           >
             No Meals Selected
