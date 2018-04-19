@@ -1,10 +1,12 @@
 .ant-card-meta-title {
   font-weight: 400;
+  font-size: 1.4em;
 }
 
 .ant-card-meta-description {
   font-style: italic;
   letter-spacing: .8px;
+  font-size: 1.1em;
 }
 
 .feed-food-card {
