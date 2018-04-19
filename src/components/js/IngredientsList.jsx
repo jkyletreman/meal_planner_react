@@ -20,7 +20,11 @@ export default class IngredientsList extends Component {
   }
   //
   async getIngredients() {
-    const request = await fetch(`https://feedme-node-api.herokuapp.com/api/ingredients?ids=${this.state.ids}`);
+    const request = await fetch(
+      `https://feedme-node-api.herokuapp.com/api/ingredients?ids=${
+        this.state.ids
+      }`
+    );
     const response = await request.json();
     this.setState({ ingredients: response });
   }
@@ -161,29 +165,29 @@ export default class IngredientsList extends Component {
             />
             <div className="form-container">
               <div className="left-form-column">
-              <h3 className="form-text">Enter Your Number</h3>
-              <form onSubmit={this.handleSubmit}>
-                <div>
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="number"
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </form>
+                <div className="left-form-flex">
+                <h3 className="form-text">Enter Your Number</h3>
+                <form onSubmit={this.handleSubmit}>
+                  <div>
+                    <input
+                      className="form-input"
+                      type="text"
+                      name="number"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </form>
+              </div>
             </div>
-            <div className="right-form-column">
+              <div className="right-form-column">
+                <div className="right-form-flex">
                 <h3 className="form-item">Text Your List</h3>
                 {/* <input type="submit" value="Add a Product" /> */}
-                <Button
-                  onClick={info}
-                  type="primary"
-                  className="form-btn"
-                >
+                <Button onClick={info} type="primary" className="form-btn">
                   Text Ingredients
                 </Button>
+              </div>
             </div>
           </div>
           </React.Fragment>

@@ -9,8 +9,12 @@
 .left-form-column {
   grid-row: 1;
   grid-column: 1;
+
+}
+.left-form-flex, .right-form-flex {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .right-form-column {
   grid-row: 1;
