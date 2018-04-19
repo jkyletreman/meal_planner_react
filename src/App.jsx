@@ -5,6 +5,7 @@ import Feed from "./components/js/Feed";
 import WeekView from "./components/js/WeekView";
 import IngredientsList from "./components/js/IngredientsList";
 import MobileNav from "./components/js/MobileNav";
+import { Spin } from "antd";
 import "./App.css";
 
 export default class App extends React.Component {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     this.state = {
       day: "Monday",
       info: [],
+      loading: false,
       week: {
         Monday: [],
         Tuesday: [],
@@ -82,68 +84,76 @@ export default class App extends React.Component {
     const { screenSize } = this.state;
     const isMobile = screenSize <= 500;
 
-    if (isMobile) {
+    if (this.state.info.length < 2) {
       return (
-        <Router>
-          <React.Fragment>
-            <MobileNav setDayForRecipes={this.setDayForRecipes}/>
-            <Switch>
-              <Route
-                exact="exact"
-                path="/"
-                render={() => (
-                  <Feed
-                    updateDayWithRecipe={this.updateDayWithRecipe}
-                    info={this.state.info}
-                    day={this.state.day}
-                  />
-                )}
-              />
-              <Route
-                exact="exact"
-                path="/week"
-                render={() => <WeekView week={this.state.week} />}
-              />
-              <Route
-                exact="exact"
-                path="/list"
-                render={() => <IngredientsList week={this.state.week} />}
-              />
-            </Switch>
-          </React.Fragment>
-        </Router>
-      );
+        <div style={{margin: "1rem", display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center"}}>
+        <h1>Servers Spinning Up!</h1>
+        <Spin />
+      </div>)
     } else {
-      return (
-        <Router>
-          <div className="main-wrapper">
-            <DesktopHeader setDayForRecipes={this.setDayForRecipes} />
-            <Switch>
-              <Route
-                exact="exact"
-                path="/"
-                render={() => (
-                  <Feed
-                    updateDayWithRecipe={this.updateDayWithRecipe}
-                    info={this.state.info}
-                    day={this.state.day}
-                  />
-                )}
-              />
-              <Route
-                exact="exact"
-                path="/week"
-                render={() => <WeekView week={this.state.week} />}
-              />
-              <Route
-                exact="exact"
-                path="/list"
-                render={() => <IngredientsList week={this.state.week} />}
-              />
-            </Switch>
-          </div>
-        </Router>
-      );
+      if (isMobile) {
+        return (
+          <Router>
+            <React.Fragment>
+              <MobileNav setDayForRecipes={this.setDayForRecipes} />
+              <Switch>
+                <Route
+                  exact="exact"
+                  path="/"
+                  render={() => (
+                    <Feed
+                      updateDayWithRecipe={this.updateDayWithRecipe}
+                      info={this.state.info}
+                      day={this.state.day}
+                    />
+                  )}
+                />
+                <Route
+                  exact="exact"
+                  path="/week"
+                  render={() => <WeekView week={this.state.week} />}
+                />
+                <Route
+                  exact="exact"
+                  path="/list"
+                  render={() => <IngredientsList week={this.state.week} />}
+                />
+              </Switch>
+            </React.Fragment>
+          </Router>
+        );
+      } else {
+        return (
+          <Router>
+            <div className="main-wrapper">
+              <DesktopHeader setDayForRecipes={this.setDayForRecipes} />
+              <Switch>
+                <Route
+                  exact="exact"
+                  path="/"
+                  render={() => (
+                    <Feed
+                      updateDayWithRecipe={this.updateDayWithRecipe}
+                      info={this.state.info}
+                      day={this.state.day}
+                    />
+                  )}
+                />
+                <Route
+                  exact="exact"
+                  path="/week"
+                  render={() => <WeekView week={this.state.week} />}
+                />
+                <Route
+                  exact="exact"
+                  path="/list"
+                  render={() => <IngredientsList week={this.state.week} />}
+                />
+              </Switch>
+            </div>
+          </Router>
+        );
+      }
     }
   }
 }

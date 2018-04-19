@@ -81,3 +81,7 @@
 .hamburger-select-text {
   font-family: 'Roboto Slab', serif;
 }
+
+.instructions-popup {
+  z-index: 3;
+}

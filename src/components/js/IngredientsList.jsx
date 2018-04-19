@@ -160,6 +160,7 @@ export default class IngredientsList extends Component {
               dataSource={ingredientsToDisplay}
             />
             <div className="form-container">
+              <div className="left-form-column">
               <h3 className="form-text">Enter Your Number</h3>
               <form onSubmit={this.handleSubmit}>
                 <div>
@@ -171,6 +172,9 @@ export default class IngredientsList extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
+              </form>
+            </div>
+            <div className="right-form-column">
                 <h3 className="form-item">Text Your List</h3>
                 {/* <input type="submit" value="Add a Product" /> */}
                 <Button
@@ -180,8 +184,8 @@ export default class IngredientsList extends Component {
                 >
                   Text Ingredients
                 </Button>
-              </form>
             </div>
+          </div>
           </React.Fragment>
         ) : (
           <h2
